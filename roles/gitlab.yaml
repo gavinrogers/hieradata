@@ -1,0 +1,55 @@
+---
+classes:
+  - 'gitlab'
+    #  - 'postgresql::server'
+    #  - 'nginx'
+    #  - 'redis'
+    #  - 'gcc'
+
+types:
+  - postgresql::server::db
+  - postgresql::server::role
+
+
+hiera_selboolean:
+  httpd_can_network_connect:
+    value: 'on'
+    persistent: true
+
+hiera_selboolean:
+  httpd_verify_dns:
+    value: 'on'
+    persistent: true
+
+#postgresql::server::postgres_password: 'postgres'
+#
+#hiera_postgresql_server_db:
+#  mygitlab_db:
+#    user: 'mygitlab_user'
+#    password: 'mygitlab_password'
+#    dbname: 'mygitlab_db'
+#
+#hiera_postgresql_server_role:
+#  mygitlab_user:
+#    password_hash: 'md5dc2697d81f824755077128e523982873'
+#    createdb: true
+#
+#gitlab::git_email:  'grogers@cambridge.org'
+#gitlab::git_comment:  'GitLab'
+#gitlab::gitlab_domain:  'gitlab.aop.cambridge.org'
+#gitlab::gitlab_dbtype: 'pgsql'
+#gitlab::gitlab_dbhost: 'localhost'
+#gitlab::params::gitlab_dbtype: 'pgsql'
+#gitlab::gitlab_dbname: 'mygitlab_db'
+#gitlab::gitlab_dbuser: 'mygitlab_user'
+#gitlab::gitlab_dbpwd: 'awesomepass'
+#gitlab::gitlab_http_port: '8080'
+
+gitlab::gitlab_branch: '7.4.0'
+gitlab::external_url: 'http://192.168.33.10'
+hiera_firewall:
+  '100 accept port 80':
+    port: '80'
+    proto: 'tcp'
+    action: 'accept'
+    

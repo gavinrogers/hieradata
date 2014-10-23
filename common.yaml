@@ -1,0 +1,13 @@
+---
+classes:
+  - 'ntp'
+  - 'firewall'
+
+ntp::servers:
+  - 0.us.pool.ntp.org
+  - 1.us.pool.ntp.org
+
+hiera_firewall:
+  '000 accept all icmp requests':
+    proto: 'icmp'
+    action: 'accept'

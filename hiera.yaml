@@ -1,0 +1,14 @@
+---
+:backends:
+  - yaml
+  - module_data
+
+:yaml:
+  :datadir: hiera
+
+:hierarchy:
+  - "node/%{certname}"
+  - "roles/%{our_role}"
+  - "components/%{our_component}"
+  - "evironments/%{our_environment}"
+  - common

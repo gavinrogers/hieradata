@@ -1,0 +1,9 @@
+---
+classes:
+  - 'postgresql::server'
+  - 'postgresql::server::db'
+
+postgresql::server::db::user: 'gitlab'
+postgresql::server::db::password: 'gitlab'
+postgresql::server::db::dbname: 'gitlab'
+
