@@ -6,9 +6,9 @@ classes:
     #  - 'redis'
     #  - 'gcc'
 
-types:
-  - postgresql::server::db
-  - postgresql::server::role
+#types:
+#  - postgresql::server::db
+#  - postgresql::server::role
 
 
 hiera_selboolean:
@@ -45,11 +45,22 @@ hiera_selboolean:
 #gitlab::gitlab_dbpwd: 'awesomepass'
 #gitlab::gitlab_http_port: '8080'
 
-gitlab::gitlab_branch: '7.4.0'
-gitlab::external_url: 'http://192.168.33.10'
+gitlab::gitlab_branch: '7.4.2'
 hiera_firewall:
   '100 accept port 80':
     port: '80'
     proto: 'tcp'
     action: 'accept'
     
+gitlab::extra_sign_in_text: '![Cambridge University Press](http://www.cambridge.org/packages/cambridge_themes/themes/global_corporate/images/xsprites_v2x.png.pagespeed.ic.wkefPzRXF4.png)
+  [cambridge.org](https://cambridge.org)'
+
+gitlab::external_url: 'http://gitlab.aop.cambridge.org'
+gitlab::ldap_enabled: true
+gitlab::ldap_host: 'ldap.aop.cambridge.org'
+gitlab::ldap_bind_dn: 'cn=Manager,dc=aop,dc=cambridge,dc=org'
+gitlab::ldap_password: 'biscuitsandcheese'
+gitlab::ldap_base: 'dc=aop,dc=cambridge,dc=org'
+gitlab::ldap_method: 'plain'
+#gitlab::omniauth_enabled: true
+

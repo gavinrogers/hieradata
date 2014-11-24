@@ -2,6 +2,7 @@
 classes:
   - 'ntp'
   - 'firewall'
+  - 'puppet::agent'
 
 ntp::servers:
   - 0.us.pool.ntp.org
@@ -11,3 +12,10 @@ hiera_firewall:
   '000 accept all icmp requests':
     proto: 'icmp'
     action: 'accept'
+
+
+puppet::agent::enable: 'true'
+puppet::agent::ensure: 'running'
+puppet::agent::pupet_server: '10.10.30.35'
+puppet::agent::environment: 'production'
+

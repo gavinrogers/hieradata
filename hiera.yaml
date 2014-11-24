@@ -7,7 +7,7 @@
   :datadir: hiera
 
 :hierarchy:
-  - "node/%{certname}"
+  - "node/%{hostname}"
   - "roles/%{our_role}"
   - "components/%{our_component}"
   - "evironments/%{our_environment}"
